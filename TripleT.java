@@ -15,12 +15,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
+import javax.swing.JFrame;
 
 /**
  *
  * @author lqtam
  */
-public class TripleT extends javax.swing.JFrame {
+public class TripleT extends JFrame {
     /**
      *
      */
@@ -52,6 +53,7 @@ public class TripleT extends javax.swing.JFrame {
         Board = new JPanel();
         Positions = new JButton[9];
 
+
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBackground(new Color(255, 255, 255));
         setFont(new Font("Times New Roman", 3, 48)); // NOI18N
@@ -77,6 +79,7 @@ public class TripleT extends javax.swing.JFrame {
         Board.setMinimumSize(new Dimension(360, 360));
 
         for (int i = 0; i < 9; i++) {
+            Positions[i] = new JButton(" ");
             Positions[i].setBackground(new Color(0, 0, 0));
             Positions[i].setFont(new Font("Tahoma", 1, 48)); // NOI18N
             Positions[i].setForeground(new Color(255, 255, 255));
