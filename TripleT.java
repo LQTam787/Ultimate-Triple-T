@@ -79,6 +79,7 @@ public class TripleT extends JFrame {
         Board.setMinimumSize(new Dimension(360, 360));
 
         for (int i = 0; i < 9; i++) {
+            final int pos = i;
             Positions[i] = new JButton(" ");
             Positions[i].setBackground(new Color(0, 0, 0));
             Positions[i].setFont(new Font("Tahoma", 1, 48)); // NOI18N
@@ -89,7 +90,6 @@ public class TripleT extends JFrame {
             Positions[i].setPreferredSize(new Dimension(112, 112));
             Positions[i].addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
-                    int pos = -1;
                     PositionsActionPerformed(pos, evt);
                 }
             });
@@ -204,9 +204,18 @@ public class TripleT extends JFrame {
             }
 
             switch (board.checkWin()) {
-                case 1 -> JOptionPane.showMessageDialog(this, "X WINS! GAME OVER YEAH!!!");
-                case 2 -> JOptionPane.showMessageDialog(this, "O WINS! GAME OVER YEAH!!!");
-                case 3 -> JOptionPane.showMessageDialog(this, "A DRAW! GAME OVER YEAH!!!");
+                case 1 -> {
+                    JOptionPane.showMessageDialog(this, "X WINS! GAME OVER YEAH!!!");
+                    System.exit(0);
+                }
+                case 2 -> {
+                    JOptionPane.showMessageDialog(this, "O WINS! GAME OVER YEAH!!!");
+                    System.exit(0);
+                }
+                case 3 -> {
+                    JOptionPane.showMessageDialog(this, "A DRAW! GAME OVER YEAH!!!");
+                    System.exit(0);
+                }
             }
         } else {
             JOptionPane.showMessageDialog(this, "Invalid move.");
